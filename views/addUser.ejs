@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./components/headTag') -%>
+</head>
+<body>
+    <%- include('./components/navbar') -%>
+
+        <!-- - Back to all users -->
+        <div class="container mt-2">
+          <a href="./home.html" class="btn btn-secondary fw-bold ">&larr; Back</a>
+      </div>
+
+<div class="container mt-5">
+
+     <!-- - Alert msg -->
+     <% if(msg !="" ){%>
+      <div class="alert alert-success text-center " role="alert" id="addMsg">
+
+          <%=msg %>
+      </div>
+
+
+      <%} %>
+
+  <div class="container mt-5 text-center text-light fw-30 p-2" style="background-color: #219ebc;">
+    <h3>Add User Form</h3>
+  </div>
+<form action="/adduser" method="POST" style="background-color: #e7ecef;">
+    <div class="form-group mt-3">
+      <label for="labelEmail">Name</label>
+      <input type="text" class="form-control" id="inputEmail" name="userName" placeholder="Enter name" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="labelUsername">Username</label>
+      <input type="text" class="form-control" id="inputUsername" name="userUsername" placeholder="Enter username" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="labelAccountNumber">Account number</label>
+      <input type="text" class="form-control" id="inputAccountNumber" name="userAccountNumber" placeholder="Enter account number" required>
+    </div>
+
+    <div class="form-group mt-3">
+      <label for="labelDPI">DPI</label>
+      <input type="text" class="form-control" id="inputDPI" name="userDPI" placeholder="Enter DPI" required>
+    </div>
+
+    <div class="form-group  mt-3">
+      <label for="labelAddress">Address</label>
+      <input type="text" class="form-control" id="inputAddress" name="userAddress" placeholder="Enter address" required>
+    </div>
+
+    <div class="form-group  mt-3">
+      <label for="labelMobile">Mobile</label>
+      <input type="tel" class="form-control" id="inputMobile" name="userMobile" placeholder="Enter mobile" required>
+    </div>
+
+    <div class="form-group  mt-3">
+      <label for="labelEmail">Email</label>
+      <input type="email" class="form-control" id="inputEmail" name="userEmail" placeholder="Enter email" required>
+    </div>
+
+    <div class="form-group  mt-3">
+      <label for="labelPassword">Password</label>
+      <input type="password" class="form-control" id="inputPassword" name="userPassword" placeholder="Enter password" required>
+    </div>
+
+    <div class="form-group  mt-3">
+      <label for="labelWorkName">Work name</label>
+      <input type="text" class="form-control" id="inputWorkName" name="userWorkName" placeholder="Enter work name" required>
+    </div>
+
+    <div class="form-group  mt-3">
+      <label for="labelMonthlyIncome">Monthly income</label>
+      <input type="text" class="form-control" id="inputMonthlyIncome" name="userMonthlyIncome" placeholder="Enter monthly income" required>
+    </div>
+
+    <div class="form-group  mt-3">
+        <label for="labelAmount">Amount</label>
+        <input type="number" class="form-control" id="inputAmount" name="userAmount" placeholder="Enter amount" required>
+    </div>
+
+    <button type="submit" class="btn mt-3 text-center" style="background-color: #219ebc; color: white">Submit</button>
+  </form>
+</div>
+
+    <%- include('./components/bootstrapScript') -%>
+    <script>
+      let alert = document.getElementById('addMsg');
+      setTimeout(() => {
+        alert.style.visibility = "hidden";
+      }, 2000);
+    </script>
+</body>
+</html>

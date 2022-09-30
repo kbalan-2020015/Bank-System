@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/headTag') -%>
+</head>
+<body>
+  <%- include('./components/navbar') -%>
+
+    <!-- - Back to all users -->
+    <div class="container mt-2">
+      <a href="./home.html" class="btn btn-secondary fw-bold ">&larr; Back</a>
+    </div>
+
+    <div class="container mt-5">
+      <div class="container mt-5 text-center text-light fw-30 p-2" style="background-color: #219ebc;">
+        <h3>All Transections</h3>
+      </div>
+
+      <table class="table mt-2" style="background-color: #e7ecef;">
+        <thead class="text-light" style="background-color: #219ebc;">
+          <tr>
+            <th scope="col">Sender</th>
+            <th scope="col">Reciver</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Data</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% if(data.length>0){%>
+            <% data.forEach((e) => {%>
+              <tr>
+                <td><%= e.sName %></td>
+                <td><%= e.rName %></td>
+                <td><%= e.amount  %></td>
+                <td><%= e.date  %></td>
+                <td>
+                  <a href="/remove/<%=e._id %>" class="btn btn-danger" >
+                    <i class="fa fa-minus" ></i>
+                  </a>
+                </td>
+              </tr>
+              <%}) %>
+
+            <%}else{%>
+              <tr class="bg-warning text-light">
+                <td>
+                  No records Found!
+                </td>
+              </tr>
+          <%} %>
+        </tbody>
+      </table>
+    </div>
+  <%- include('./components/bootstrapScript') -%>
+</body>
+</html>
